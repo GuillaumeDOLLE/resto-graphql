@@ -1,0 +1,22 @@
+"Un restaurant"
+type Restaurant{
+    id: Int!
+    name: String!
+    phone: String!
+    description: String!
+    terrace: Boolean!
+    manager: Manager! # je viens dire que mon Type restaurant à un champs "manager" qui est de type "Manager
+    city: City!
+    cookingStyles: [CookingStyle!]!
+}
+
+
+"Données d'un restaurant"
+input RestaurantInput {
+    name: String!
+    description: String!
+    terrace: Boolean!
+    updated_at: DateTime
+    manager_id: Int!
+    city_id: Int!
+}

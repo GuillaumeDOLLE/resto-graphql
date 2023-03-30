@@ -1,0 +1,6 @@
+"Style de cuisine"
+type CookingStyle{
+    id: Int!
+    label: String!
+    restaurants:[Restaurant!]!
+}

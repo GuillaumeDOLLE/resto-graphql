@@ -1,0 +1,9 @@
+"Un gérant"
+type Manager{
+    id: Int!
+    email: String!
+    password: String!
+    firstname: String!
+    lastname: String!
+    restaurants:[Restaurant!]! # []! signifique ça ne peut être null , le Restaurant! signifique qu'il faut au moins un restaurant dans la liste
+}

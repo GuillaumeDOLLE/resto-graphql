@@ -1,0 +1,106 @@
+### Affiche la liste des restaurants avec leur nomet leur id
+
+POST http://localhost:3000/graphql
+Content-Type: application/json
+Authorization: Bearer xxx
+X-REQUEST-TYPE: GraphQL
+
+query GetAllRestaurants {
+    getAllRestaurants {
+        name
+        id
+    }
+}
+
+
+### Nom, manager (nom,prénom), style de cuisine et la ville du restaurant d'id 1
+POST http://localhost:3000/graphql
+Content-Type: application/json
+Authorization: Bearer xxx
+X-REQUEST-TYPE: GraphQL
+
+query GetRestaurant {
+    getRestaurant(id:1) {
+        name
+        manager {firstname, lastname}
+        city {name}
+        cookingStyles {label}
+    }
+}
+
+
+POST http://localhost:3000/graphql
+Content-Type: application/json
+Authorization: Bearer xxx
+X-REQUEST-TYPE: GraphQL
+
+query GetRestaurant{
+    getRestaurant(id:1){
+        name
+        cookingStyles{
+            label
+        }
+        manager{
+            firstname
+            lastname
+        }
+    }
+}
+
+
+### Récupération des managers (nom, prénom, restaurants)
+POST http://localhost:3000/graphql
+Content-Type: application/json
+Authorization: Bearer xxx
+X-REQUEST-TYPE: GraphQL
+
+query GetAllManagers {
+    getAllManagers {
+        firstname
+        lastname
+        restaurants {name, description, terrace}
+    }
+}
+
+
+######################## TEST ##########################
+POST http://localhost:3000/graphql
+Content-Type: application/json
+Authorization: Bearer xxx
+X-REQUEST-TYPE: GraphQL
+
+query Michel{
+    getAllManagers{
+        lastname
+        firstname
+        restaurants{
+            name
+        }
+    }
+}
+
+############################################
+POST http://localhost:3000/graphql
+Content-Type: application/json
+Authorization: Bearer xxx
+X-REQUEST-TYPE: GraphQL
+
+mutation CreateRestaurant($input: RestaurantInput!) {
+  createRestaurant(input: $input) {
+    # liste des champs retournés
+        name
+        description
+        terrace
+  }
+}
+
+# valeurs à insérer
+{
+    "input":{
+        "name":"KFC",
+        "description":"du bon poulet",
+        "terrace":true,
+        "manager_id":8,
+        "city_id":185
+    }
+}

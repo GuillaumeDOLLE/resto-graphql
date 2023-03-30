@@ -1,0 +1,14 @@
+# Query va concerner tout ce qui est requête SELECT
+type Query{
+    getAllRestaurants: [Restaurant!]!
+    getRestaurant(id: Int!): Restaurant
+
+    getAllManagers: [Manager!]!
+    getManager(id: Int!): Manager
+
+    getAllCity: [City!]!
+    getCity(id: Int!): City
+
+    getAllCookingStyles: [CookingStyle!]!
+    getCookingStyle(id: Int!): CookingStyle
+}
